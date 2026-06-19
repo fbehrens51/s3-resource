@@ -24,10 +24,10 @@ FROM ${base_image} AS resource
 RUN apk --no-cache add \
     tzdata \
     ca-certificates \
-    cmd:bunzip2 \
-    cmd:unzip \
-    cmd:tar \
-    cmd:gunzip
+    bzip2 \
+    unzip \
+    gnutar \
+    gzip
 COPY --from=builder assets/ /opt/resource/
 RUN chmod +x /opt/resource/*
 
